@@ -16,9 +16,15 @@ public class Product{
 	@Column
 	private String description;
 	@Column
+	private String tags;
+	@Column
 	private String brand;
 	@Column
 	private String type;
+	@Column
+	private String animalType;
+	@Column
+	private String lifeStage;
 	@Column
 	private int stock;
 	@Column
@@ -38,12 +44,15 @@ public class Product{
 		super();
 	}
 
-	public Product(int id,
+	public Product(long id,
 				   String name,
 				   double price,
 				   String description,
+				   String tags,
 				   String brand,
 				   String type,
+                   String animalType,
+                   String lifeStage,
                    int stock,
 				   Date releaseDate,
 				   int soldNumber,
@@ -56,8 +65,11 @@ public class Product{
 		this.name = name;
 		this.price = price;
 		this.description = description;
+		this.tags = tags;
 		this.brand = brand;
 		this.type = type;
+		this.animalType = animalType;
+		this.lifeStage = lifeStage;
 		this.stock = stock;
 		this.releaseDate = releaseDate;
 		this.soldNumber = soldNumber;
@@ -69,10 +81,24 @@ public class Product{
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", description=" + description + ", brand="
-				+ brand + ", type=" + type + ", stock=" + stock + ", releaseDate=" + releaseDate
-				+ ", soldNumber=" + soldNumber + ", image1=" + image1 + ", image2=" + image2 + ", image3=" + image3
-				+ ", image4=" + image4 + "]";
+		return "Product{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", price=" + price +
+				", description='" + description + '\'' +
+				", tags='" + tags + '\'' +
+				", brand='" + brand + '\'' +
+				", type='" + type + '\'' +
+				", animalType='" + animalType + '\'' +
+				", lifeStage='" + lifeStage + '\'' +
+				", stock=" + stock +
+				", releaseDate=" + releaseDate +
+				", soldNumber=" + soldNumber +
+				", image1='" + image1 + '\'' +
+				", image2='" + image2 + '\'' +
+				", image3='" + image3 + '\'' +
+				", image4='" + image4 + '\'' +
+				'}';
 	}
 
 	public long getId() {
@@ -107,6 +133,14 @@ public class Product{
 		this.description = description;
 	}
 
+	public String getTags() {
+		return tags;
+	}
+
+	public void setTags(String tags) {
+		this.tags = tags;
+	}
+
 	public String getBrand() {
 		return brand;
 	}
@@ -121,6 +155,22 @@ public class Product{
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getAnimalType() {
+		return animalType;
+	}
+
+	public void setAnimalType(String animalType) {
+		this.animalType = animalType;
+	}
+
+	public String getLifeStage() {
+		return lifeStage;
+	}
+
+	public void setLifeStage(String lifeStage) {
+		this.lifeStage = lifeStage;
 	}
 
 	public int getStock() {
@@ -178,14 +228,4 @@ public class Product{
 	public void setImage4(String image4) {
 		this.image4 = image4;
 	}
-	
-	
-	
-
-	
-
-
-	
-
-	
 }

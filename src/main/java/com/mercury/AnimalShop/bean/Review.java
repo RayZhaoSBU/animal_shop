@@ -9,33 +9,17 @@ public class Review {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column
-	private String username;
+	private long userId;
+	@Column
+	private long productId;
 	@Column
 	private String title;
-	@Column
+	@Column(length=3000)
 	private String description;
 	@Column
 	private int rate;
-
 	public Review() {
 		super();
-	}
-	public Review(long id,
-				  String username,
-				  String title,
-				  String description,
-				  int rate) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.title = title;
-		this.description = description;
-		this.rate = rate;
-	}
-	@Override
-	public String toString() {
-		return "Review [id=" + id + ", username=" + username + ", title=" + title + ", description=" + description
-				+ ", rate=" + rate + "]";
 	}
 
 	public long getId() {
@@ -46,12 +30,20 @@ public class Review {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
+	public long getUserId() {
+		return userId;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+
+	public long getProductId() {
+		return productId;
+	}
+
+	public void setProductId(long productId) {
+		this.productId = productId;
 	}
 
 	public String getTitle() {
@@ -75,6 +67,16 @@ public class Review {
 	}
 
 	public void setRate(int rate) {
+		this.rate = rate;
+	}
+
+	public Review(long id, long userId, long productId, String title, String description, int rate) {
+		super();
+		this.id = id;
+		this.userId = userId;
+		this.productId = productId;
+		this.title = title;
+		this.description = description;
 		this.rate = rate;
 	}
 

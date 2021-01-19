@@ -20,20 +20,15 @@ public class Profile implements GrantedAuthority {
 		super();
 	}
 
-	public Profile(long id, String type) {
-		super();
-		this.id = id;
-		this.type = type;
-	}
+//	public Profile(long id, String type) {
+//		super();
+//		this.id = id;
+//		this.type = type;
+//	}
 	
 	public Profile(long id) {
 		super();
 		this.id = id;
-	}
-
-	@Override
-	public String toString() {
-		return "Profile [id=" + id + ", type=" + type + "]";
 	}
 
 	public long getId() {
@@ -50,6 +45,14 @@ public class Profile implements GrantedAuthority {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	@Override
+	public String toString() {
+		return "Profile{" +
+				"id=" + id +
+				", type='" + type + '\'' +
+				'}';
 	}
 
 	@Override

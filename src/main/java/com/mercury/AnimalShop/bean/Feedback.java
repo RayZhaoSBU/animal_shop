@@ -9,7 +9,7 @@ public class Feedback {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column
-	private int userId;
+	private long userId;
 	@Column
 	private String title;
 	@Column
@@ -19,17 +19,12 @@ public class Feedback {
 		super();
 	}
 
-	public Feedback(long id, int userId, String title, String description) {
+	public Feedback(long id, long userId, String title, String description) {
 		super();
 		this.id = id;
 		this.userId = userId;
 		this.title = title;
 		this.description = description;
-	}
-
-	@Override
-	public String toString() {
-		return "Feedback [id=" + id + ", userId=" + userId + ", title=" + title + ", description=" + description + "]";
 	}
 
 	public long getId() {
@@ -40,11 +35,11 @@ public class Feedback {
 		this.id = id;
 	}
 
-	public int getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 
@@ -63,7 +58,4 @@ public class Feedback {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
-	
 }

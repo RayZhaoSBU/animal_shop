@@ -26,7 +26,11 @@ public class Shipping {
 
 	@Override
 	public String toString() {
-		return "Shipping [id=" + id + ", type=" + type + ", price=" + price + "]";
+		return "Shipping{" +
+				"id=" + id +
+				", type='" + type + '\'' +
+				", price=" + price +
+				'}';
 	}
 
 	public long getId() {

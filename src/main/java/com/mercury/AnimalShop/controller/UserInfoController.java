@@ -8,14 +8,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/user-infos")
+@RequestMapping("/user-details")
 public class UserInfoController {
 
     @Autowired
     UserInfoService userInfoService;
 
     @GetMapping("/{userId}")
-    public UserInfo getUserDetail(@PathVariable int userId) {
+    public UserInfo getUserDetail(@PathVariable long userId) {
         return userInfoService.getByUserId(userId);
     }
 

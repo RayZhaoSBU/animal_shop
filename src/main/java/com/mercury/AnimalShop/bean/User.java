@@ -18,6 +18,8 @@ public class User implements UserDetails {
 	private String username;
 	@Column
 	private String password;
+	@Column
+	private String email;
 	
 	
 	@ManyToMany(fetch=FetchType.EAGER,cascade=CascadeType.DETACH)
@@ -41,20 +43,26 @@ public class User implements UserDetails {
 	public User(long id,
 				String username,
 				String password,
-				List<Profile> profiles) {
+				List<Profile> profiles,
+				String email) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.profiles = profiles;
+		this.email = email;
 	}
-
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", profiles=" + profiles + "]";
+		return "User{" +
+				"id=" + id +
+				", username='" + username + '\'' +
+				", password='" + password + '\'' +
+				", email='" + email + '\'' +
+				", profiles=" + profiles +
+				'}';
 	}
-
 
 	public long getId() {
 		return id;
@@ -95,6 +103,13 @@ public class User implements UserDetails {
 		this.profiles = profiles;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

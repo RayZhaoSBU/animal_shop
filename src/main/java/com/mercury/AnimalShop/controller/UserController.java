@@ -24,19 +24,28 @@ public class UserController {
     }
 
     @PreAuthorize("permitAll()")
-    @PostMapping
+    @PostMapping("/user")
     public Response addUser(@RequestBody User user) {
         return userService.register(user);
     }
 
+    @PreAuthorize("permitAll()")
+    @PostMapping("/admin")
+    public Response addAdmin(@RequestBody User user) {
+        System.out.println("user controller add admin");
+        System.out.println(user.toString());
+        return userService.registerAdmin(user);
+    }
+
     @PutMapping
     public Response changeUser(@RequestBody User user, Authentication authentication) {
+
         return userService.changePassword(user, authentication);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
-    public Response deleteUser(@PathVariable int id) {
+    public Response deleteUser(@PathVariable long id) {
         return userService.deleteUser(id);
     }
 }

@@ -32,10 +32,27 @@ public class UserService {
         return userDao.findAll();
     }
 
+    public List<User> getAllByEmail(String email){
+        return userDao.findByEmail(email);
+    }
+
     public Response register(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         List<Profile> profiles = new ArrayList<Profile>();
         profiles.add(new Profile(2));
+        user.setProfiles(profiles);
+        userDao.save(user);
+        UserInfo newUserInfo=new UserInfo(" "," "," "," "," "," "," "," "," ",user);
+        userInfoDao.save(newUserInfo);
+        return new Response(true);
+    }
+
+    public Response registerAdmin(User user) {
+//        System.out.println("register admin");
+//        System.out.println(user.toString());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        List<Profile> profiles = new ArrayList<Profile>();
+        profiles.add(new Profile(1));
         user.setProfiles(profiles);
         userDao.save(user);
         UserInfo newUserInfo=new UserInfo(" "," "," "," "," "," "," "," "," ",user);
